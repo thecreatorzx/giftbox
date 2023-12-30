@@ -1,9 +1,12 @@
 const countdown = document.querySelector(".countdown");
 const timer = document.querySelector(".timer");
 const congrat = document.querySelector(".congrats");
+const page1 = document.querySelector(".page1");
+const page2 = document.querySelector(".page2");
 let hour, minute, second;
 const congrats = () => {
-  let a;
+  page1.style.display = "none";
+  page2.style.display = "grid";
 };
 const count = setInterval(() => {
   const date = new Date();
@@ -11,7 +14,7 @@ const count = setInterval(() => {
   minute = date.getMinutes();
   second = date.getSeconds();
   countdown.innerHTML = `${23 - hour} : ${59 - minute} : ${60 - second}`;
-  if (hour == 23 && minute == 59 && second == 59) {
+  if (hour == 22 && minute == 30 && second == 59) {
     setTimeout(() => {
       clearInterval(count);
       timer.style.display = "none";
@@ -20,7 +23,7 @@ const count = setInterval(() => {
       setTimeout(() => {
         removeBalloons();
         congrats();
-      }, 5000);
+      }, 10000);
     }, 800);
   }
 }, 100);
@@ -61,3 +64,45 @@ function removeBalloons() {
     balloonContainer.remove();
   }, 500);
 }
+
+//over
+const colors = ["#3CC157", "#2AA7FF", "#1B1B1B", "#FCBC0F", "#F85F36"];
+
+const numBalls = 50;
+const balls = [];
+
+for (let i = 0; i < numBalls; i++) {
+  let ball = document.createElement("div");
+  ball.classList.add("ball");
+  ball.style.background = colors[Math.floor(Math.random() * colors.length)];
+  ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
+  ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
+  ball.style.transform = `scale(${Math.random()})`;
+  ball.style.width = `${Math.random()}em`;
+  ball.style.height = ball.style.width;
+
+  balls.push(ball);
+  document.body.append(ball);
+}
+
+// Keyframes
+balls.forEach((el, i, ra) => {
+  let to = {
+    x: Math.random() * (i % 2 === 0 ? -11 : 11),
+    y: Math.random() * 12,
+  };
+
+  let anim = el.animate(
+    [
+      { transform: "translate(0, 0)" },
+      { transform: `translate(${to.x}rem, ${to.y}rem)` },
+    ],
+    {
+      duration: (Math.random() + 1) * 2000, // random duration
+      direction: "alternate",
+      fill: "both",
+      iterations: Infinity,
+      easing: "ease-in-out",
+    }
+  );
+});
