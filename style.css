@@ -12,7 +12,7 @@ body {
   overflow: hidden;
 }
 .page1 {
-  display: none;
+  display: block;
   width: 100vw;
   height: 100vh;
   background: url("./assets/davies-designs-studio-PvGt65_l0FU-unsplash\ \(1\).jpg");
@@ -100,7 +100,7 @@ body {
   opacity: 0;}
 }
 .page2{
-  display: grid;
+  display: none;
   height:100vh;
   width: 100vw;
   place-items:center;
@@ -155,7 +155,7 @@ body {
   line-height: 120px;
   text-align: center;
   font-size: 8rem;
-  color: purple;
+  color: rgb(255, 140, 52);
   text-shadow: 1px 1px 0 rgb(255, 255, 255);
   font-family: "KingThings",sans-serif;
 }

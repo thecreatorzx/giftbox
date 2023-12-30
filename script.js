@@ -14,7 +14,7 @@ const count = setInterval(() => {
   minute = date.getMinutes();
   second = date.getSeconds();
   countdown.innerHTML = `${23 - hour} : ${59 - minute} : ${60 - second}`;
-  if (hour == 22 && minute == 30 && second == 59) {
+  if (hour == 23 && minute == 59 && second == 59) {
     setTimeout(() => {
       clearInterval(count);
       timer.style.display = "none";
@@ -23,7 +23,7 @@ const count = setInterval(() => {
       setTimeout(() => {
         removeBalloons();
         congrats();
-      }, 10000);
+      }, 15000);
     }, 800);
   }
 }, 100);
