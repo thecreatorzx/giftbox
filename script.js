@@ -15,7 +15,7 @@ const count = setInterval(() => {
   minute = date.getMinutes();
   second = date.getSeconds();
   countdown.innerHTML = `${23 - hour} : ${59 - minute} : ${60 - second}`;
-  if (hour == 2 && minute == 9 && second == 20) {
+  if (hour == 23 && minute == 59 && second == 59) {
     let pass = null;
     ques.style.display = "flex";
     ques.children[0].addEventListener("keyup", (e) => {
