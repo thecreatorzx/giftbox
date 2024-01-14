@@ -3,6 +3,7 @@ const timer = document.querySelector(".timer");
 const congrat = document.querySelector(".congrats");
 const page1 = document.querySelector(".page1");
 const page2 = document.querySelector(".page2");
+const ques = document.querySelector(".ques");
 let hour, minute, second;
 const congrats = () => {
   page1.style.display = "none";
@@ -14,17 +15,30 @@ const count = setInterval(() => {
   minute = date.getMinutes();
   second = date.getSeconds();
   countdown.innerHTML = `${23 - hour} : ${59 - minute} : ${60 - second}`;
-  if (hour == 23 && minute == 59 && second == 59) {
-    setTimeout(() => {
-      clearInterval(count);
-      timer.style.display = "none";
-      congrat.style.display = "block";
-      createBalloons(50);
-      setTimeout(() => {
-        removeBalloons();
-        congrats();
-      }, 15000);
-    }, 800);
+  if (hour == 2 && minute == 9 && second == 20) {
+    let pass = null;
+    ques.style.display = "flex";
+    ques.children[0].addEventListener("keyup", (e) => {
+      if (e.key == "Enter") {
+        pass = e.target.value;
+        ques.style.display = "none";
+        if (pass == "puppykikitti") {
+          setTimeout(() => {
+            clearInterval(count);
+            timer.style.display = "none";
+            congrat.style.display = "block";
+            createBalloons(50);
+            setTimeout(() => {
+              removeBalloons();
+              congrats();
+            }, 15000);
+          }, 800);
+        } else {
+          ques.style.display = "none";
+          return;
+        }
+      }
+    });
   }
 }, 100);
 const balloonContainer = document.getElementById("balloon-container");

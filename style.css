@@ -159,3 +159,25 @@ body {
   text-shadow: 1px 1px 0 rgb(255, 255, 255);
   font-family: "KingThings",sans-serif;
 }
+.ques {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  width: 100vw;
+  height: 100vh; 
+  background: #3337;
+  z-index: 2;
+  color: firebrick;
+  text-shadow: 2px 2px 0 black;
+}
+#password {
+  display: block;
+  width: 60%;
+  height: 40px;
+  text-align: center;
+  font-size: 2.2rem;
+  border-radius: 15px;
+  
+}
